@@ -77,12 +77,12 @@ server {
 
 Repeat this for `fileserver.deanwalls.com` in its own configuration file.
 
-### 4. Enable Auto-Renewal for SSL Certificates
+### 4. Set Up Auto-Renewal for SSL Certificates
 
 Certbot’s certificates expire every 90 days, so it’s important to set up automatic renewal.
 
 1. **Add a Cron Job for Renewal**:
-   - Edit the cron file:
+   - Open the crontab editor:
      ```sh
      crontab -e
      ```
@@ -92,10 +92,12 @@ Certbot’s certificates expire every 90 days, so it’s important to set up aut
      ```
 
 2. **Test Renewal**:
-   - You can test the renewal process by running:
+   - You can test the renewal process with a dry run to ensure it’s set up correctly:
      ```sh
      certbot renew --dry-run
      ```
+
+   If the dry run is successful, the auto-renewal is correctly configured.
 
 ---
 

@@ -18,6 +18,10 @@ apk add certbot certbot-nginx
 
 Since Nginx was using port 80, we used Certbot in **standalone mode** to obtain certificates for each domain. This process involves stopping Nginx temporarily to free up port 80.
 
+#### Note: Temporarily Disabling HTTPS Blocks
+
+To avoid issues with Nginx trying to serve HTTPS before the SSL certificates are obtained, it’s necessary to **comment out or temporarily disable** the HTTPS blocks in each server configuration file before starting the Certbot process. After the SSL certificates have been obtained, you can **uncomment or re-enable** the HTTPS blocks.
+
 #### For `deanwalls.com` and `www.deanwalls.com`
 
 1. **Stop Nginx**:
@@ -56,7 +60,7 @@ Repeat the steps above to obtain a certificate for the fileserver subdomain:
 
 ### 3. Update Nginx Configuration to Use SSL
 
-Once the certificates are obtained, configure Nginx to use them by adding the HTTPS server blocks in each configuration file (`portfolio.conf` and `fileserver.conf`) with the following paths:
+Once the certificates are obtained, configure Nginx to use them by re-enabling the HTTPS server blocks in each configuration file (`portfolio.conf` and `fileserver.conf`) and adding the following paths:
 
 - **SSL Certificate**: `/etc/letsencrypt/live/<your-domain>/fullchain.pem`
 - **SSL Certificate Key**: `/etc/letsencrypt/live/<your-domain>/privkey.pem`

@@ -1,5 +1,5 @@
 
-# m93p-server-setup-and-config
+# alpine-linux-server-setup-and-config
 
 This repository documents the setup and configuration of an Alpine Linux server running on a Lenovo M93p. The server is used for hosting personal projects, web applications, and file storage.
 
